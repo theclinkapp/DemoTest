@@ -1,30 +1,32 @@
 package com.myclinkapp.demotest.realm;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 import io.realm.annotations.RealmClass;
 
 @RealmClass(embedded=true)
-public class address extends RealmObject {
-    private String block;
-    private String branchType;
-    private String circle;
-    private String country;
-    private String district;
-    private String pincode;
-    private String postOffice;
-    private String region;
-    private String state;
-    private String subDivision;
+public class address extends RealmObject implements Serializable {
+    String postOffice;
+    String branchType;
+    String block;
+    String district;
+    String subDivision;
+    String region;
+    String state;
+    String circle;
+    String country;
+    String pincode;
 
     public address() {
     }
 
-    public String getBlock() {
-        return block;
+    public String getPostOffice() {
+        return postOffice;
     }
 
-    public void setBlock(String block) {
-        this.block = block;
+    public void setPostOffice(String postOffice) {
+        this.postOffice = postOffice;
     }
 
     public String getBranchType() {
@@ -35,20 +37,12 @@ public class address extends RealmObject {
         this.branchType = branchType;
     }
 
-    public String getCircle() {
-        return circle;
+    public String getBlock() {
+        return block;
     }
 
-    public void setCircle(String circle) {
-        this.circle = circle;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void setBlock(String block) {
+        this.block = block;
     }
 
     public String getDistrict() {
@@ -59,20 +53,12 @@ public class address extends RealmObject {
         this.district = district;
     }
 
-    public String getPincode() {
-        return pincode;
+    public String getSubDivision() {
+        return subDivision;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
-
-    public String getPostOffice() {
-        return postOffice;
-    }
-
-    public void setPostOffice(String postOffice) {
-        this.postOffice = postOffice;
+    public void setSubDivision(String subDivision) {
+        this.subDivision = subDivision;
     }
 
     public String getRegion() {
@@ -91,11 +77,27 @@ public class address extends RealmObject {
         this.state = state;
     }
 
-    public String getSubDivision() {
-        return subDivision;
+    public String getCircle() {
+        return circle;
     }
 
-    public void setSubDivision(String subDivision) {
-        this.subDivision = subDivision;
+    public void setCircle(String circle) {
+        this.circle = circle;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
     }
 }

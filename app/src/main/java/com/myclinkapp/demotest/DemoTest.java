@@ -5,8 +5,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.myclinkapp.demotest.realm.colleges;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -43,7 +41,9 @@ public class DemoTest extends Application {
                     @Override
                     public void onBeforeReset(Realm realm) {
                         Log.w("EXAMPLE", "Beginning client reset for " + realm.getPath());
-                    }
+
+                        realm.close();
+                     }
                     @Override
                     public void onAfterReset(Realm before, Realm after) {
                         Log.w("EXAMPLE", "Finished client reset for " + before.getPath());
@@ -81,8 +81,7 @@ public class DemoTest extends Application {
                                     @Override
                                     public void configure(Realm realm, MutableSubscriptionSet subscriptions) {
                                         // add a subscription with a name
-                                        subscriptions.addOrUpdate(Subscription.create("universitySubs",
-                                                realm.where(colleges.class)));
+
                                     }
                                 })
                                 .build();

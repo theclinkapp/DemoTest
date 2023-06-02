@@ -8,7 +8,6 @@ import java.util.Date;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-import io.realm.annotations.Required;
 
 public class universities extends RealmObject {
     public universities() {
@@ -16,12 +15,22 @@ public class universities extends RealmObject {
 
     @PrimaryKey
     private ObjectId _id;
+    private String owner_id;
+
+    public String getOwner_id() {
+        return owner_id;
+    }
+
+    public void setOwner_id(String owner_id) {
+        this.owner_id = owner_id;
+    }
+
     private address address;
     private String fullAddress;
     private String fullName;
     private String image;
     private String nameSearch;
-    private ObjectId owner_id;
+
     private String shortName;
     private Date timeStamp;
     private String universityCode;
@@ -34,7 +43,7 @@ public class universities extends RealmObject {
         this._id = _id;
     }
 
-    public address getAddress() {
+    public com.myclinkapp.demotest.realm.address getAddress() {
         return address;
     }
 
@@ -74,13 +83,7 @@ public class universities extends RealmObject {
         this.nameSearch = nameSearch;
     }
 
-    public ObjectId getOwner_id() {
-        return owner_id;
-    }
 
-    public void setOwner_id(ObjectId owner_id) {
-        this.owner_id = owner_id;
-    }
 
     public String getShortName() {
         return shortName;
